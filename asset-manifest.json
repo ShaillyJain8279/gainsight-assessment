@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/gainsight-assessment/static/css/main.468ad75d.css",
+    "main.js": "/gainsight-assessment/static/js/main.0971ef7b.js",
+    "static/js/787.edfacacc.chunk.js": "/gainsight-assessment/static/js/787.edfacacc.chunk.js",
+    "index.html": "/gainsight-assessment/index.html",
+    "main.468ad75d.css.map": "/gainsight-assessment/static/css/main.468ad75d.css.map",
+    "main.0971ef7b.js.map": "/gainsight-assessment/static/js/main.0971ef7b.js.map",
+    "787.edfacacc.chunk.js.map": "/gainsight-assessment/static/js/787.edfacacc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.468ad75d.css",
+    "static/js/main.0971ef7b.js"
+  ]
+}
