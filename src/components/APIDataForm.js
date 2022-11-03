@@ -6,12 +6,12 @@ import './APIDataForm.css';
 // to fetch the list of commits
 // for the GitHub API
 // https://docs.github.com/en/rest/commits/commits#list-commits
-export default function APIDataForm() {
+export default function APIDataForm(props) {
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = (data) => {
-        console.log(errors);
-        console.log(data);
+        if (errors && Object.keys(errors).length > 0) return;
+        props.setUserData(data);
     }
 
     return (
@@ -23,7 +23,7 @@ export default function APIDataForm() {
                         <div className="form-group col-md-6">
                             <label htmlFor="owner">Owner</label>
                             <input type="text" id="owner" className="form-control" placeholder="OWNER"
-                                defaultValue={''} {...register('owner', {
+                                defaultValue={'github'} {...register('owner', {
                                     required: true,
                                 })}
                             />
@@ -33,7 +33,7 @@ export default function APIDataForm() {
                         <div className="form-group col-md-6">
                             <label htmlFor="repo">Repository</label>
                             <input type="text" id="repo" className="form-control" placeholder="REPO"
-                                defaultValue={''} {...register('repo', {
+                                defaultValue={'docs'} {...register('repo', {
                                     required: true,
                                 })}
                             />
@@ -55,7 +55,7 @@ export default function APIDataForm() {
                                 <div className="form-text text-danger">PAT is required</div>
                                 :  <div className="form-text text-danger">Incorrect pattern for PAT</div>
                             )}
-                            {watch('pat') && <div className="form-text text-success">Looks good</div>}
+                            {watch('pat') && !errors.pat && <div className="form-text text-success">Looks good</div>}
                         </div>
                         <div className="form-group col-md-6">
                             <label htmlFor="branch">Branch</label>
@@ -72,7 +72,7 @@ export default function APIDataForm() {
                         <button type="submit" className="btn btn-success w-100">Launch</button>
                     </div>
                 </form>
-            </div>
+                </div>
         </div>
     )
 };
