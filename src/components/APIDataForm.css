@@ -1,0 +1,18 @@
+.api-data-form-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    font-family: 'Dosis', sans-serif;
+}
+.api-data-form-container > div {
+    margin: auto;
+}
+
+.api-data-form-container form {
+    min-width: 70vw;
+}
