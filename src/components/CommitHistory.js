@@ -3,6 +3,7 @@ import FetchCommitService from "../service/FetchCommitService";
 import CommitPerDay from "./CommitPerDayContainer";
 import moment from "moment";
 import Loader from "./Loader";
+import './css/CommitHistory.css';
 
 // displays the commit history
 export default function CommitHistory(props) {
@@ -18,10 +19,10 @@ export default function CommitHistory(props) {
             page,
         }).then(setCommits)
             .catch(err => {
-                if (err.status === 404)         setError('The requested resource was not found!');
-                else if (err.status === 403)    setError('You do not have access to the requested resource');
-                else if (err.status === 400)    setError('The request formed with your credentials is malformed');
-                else                            setError(err.message);
+                if (err.status === 404) setError('The requested resource was not found!');
+                else if (err.status === 403) setError('You do not have access to the requested resource');
+                else if (err.status === 400) setError('The request formed with your credentials is malformed');
+                else setError(err.message);
             })
             .finally(() => setIsLoading(false));
     }, [props, page]);
@@ -45,16 +46,29 @@ export default function CommitHistory(props) {
         );
     }
 
+    const hasNextPage = items && items.length > 0;
+    const hasPrevPage = (page > 1);
+
     return (
         <div className="commit-history-container mt-5">
             {error && <div className="alert alert-danger mt-3" role="alert">
-               {error}
+                {error}
             </div>}
-            <h1 className="header" style={{fontSize: '20px'}}>
+            <h1 className="header" style={{ fontSize: '20px' }}>
                 <a href={`https://github.com/${props.owner}/${props.repo}`}>{props.owner}/{props.repo}</a>
             </h1>
             {isLoading && <Loader />}
-            {(items && items.length > 0) ? items : <p>Nothing to show!</p> }
+            {(items && items.length > 0 && !isLoading) ?
+                <>
+                    {items}
+                    <div className="btn-group btn-group-lg pagination" role="group" aria-label="Large button group">
+                        <button type="button" className="btn btn-outline-primary" disabled={!hasPrevPage}
+                            onClick={() => setPage(page => hasPrevPage ? page - 1 : page)}>Newer</button>
+                        <button type="button" className="btn btn-outline-primary" disabled={!hasNextPage}
+                            onClick={() => setPage(page => hasNextPage ? page + 1 : page)}>Older</button>
+                    </div>
+
+                </> : <p>Nothing to show!</p>}
         </div>
     );
 };

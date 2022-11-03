@@ -6,7 +6,7 @@ class FetchCommitService {
     // facilitates fetching the commits
     static fetchCommits = ({owner, repo, pat, branch, per_page, page}) => {
         // set default values for pagination
-        if (!per_page)  per_page = 10;
+        if (!per_page)  per_page = 20;
         if (!page)      page = 1;
         // set the default branch is no branch is given
         if (!branch)    branch = 'main';
@@ -14,7 +14,7 @@ class FetchCommitService {
         // send the request
         // https://docs.github.com/en/rest/commits/commits#list-commits
         return new Promise((resolve, reject) => {
-            axios.get(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}`, {
+            axios.get(`https://api.github.com/repos/${owner}/${repo}/commits?sha=${branch}&page=${[page]}&per_page=${per_page}`, {
                 headers: {
                     'Accept': 'application/vnd.github+json',
                     'Authorization': `Bearer ${pat}`
