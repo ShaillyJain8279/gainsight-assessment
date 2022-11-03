@@ -73,7 +73,7 @@ export default function Commit(props) {
                         </button>
                         <button type="button" className="btn btn-outline-primary">{commidId.substring(0, 7)}</button>
                     </div>
-                    <a href={commit.url} target="_blank" className='border rounded btn-code'>
+                    <a href={new String(commit.url).replace('https://api.github.com/repos/', 'https://github.com/').replace('/git/commits', '/commit')} target="_blank" className='border rounded btn-code'>
                         <i className="fa-solid fa-code"></i>
                     </a>
                 </div>
