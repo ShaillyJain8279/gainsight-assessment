@@ -24,7 +24,7 @@ class FetchCommitService {
             }).catch(err => {
                 console.log(err);
                 if (err instanceof AxiosError) {
-                    reject({status: err.status, message: err.message});
+                    reject({status: err.response.status, message: err.message});
                 } else {                    
                     reject({status: 500, message: 'Internal Server error'});
                 }

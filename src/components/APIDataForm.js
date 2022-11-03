@@ -1,6 +1,6 @@
 // import required modules
 import { useForm } from "react-hook-form";
-import './APIDataForm.css';
+import './css/APIDataForm.css';
 
 // the form is presented to retrieve the basic information needed 
 // to fetch the list of commits
