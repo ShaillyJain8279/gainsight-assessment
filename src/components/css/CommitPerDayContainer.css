@@ -1,0 +1,10 @@
+.commits-per-day-container .title {
+    margin: 0;
+    margin-top: 20px;
+    background-color: #f6f8fa;
+    padding: 10px;
+}
+
+.commits-per-day-container > div:last-child {
+    margin-bottom: 20px;
+}

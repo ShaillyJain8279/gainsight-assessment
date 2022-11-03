@@ -1,0 +1,62 @@
+.commit-container {
+    padding: 5px;
+}
+
+.commit-container .commit-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.commit-container p {
+    margin: 0;
+    font-size: 14px;
+}
+.commit-container .more {
+    color: #6c757d;
+}
+.commit-title button {
+    border: none;
+    background-color: rgba(234,238,242,0.5);
+    margin-left: 10px;
+    font-size: 10px;
+}
+
+.more {
+    font-size: 14px;
+}
+.bold {
+    font-weight: bold;
+}
+
+.btn-verified {
+    font-size: 12px;
+    color: #1a7f37;
+    border-color: #d0d7de !important;
+}
+
+.btn-verified:hover {
+    background-color: transparent !important;
+    color: #1a7f37 !important;
+}
+
+.commit-actions > * {
+    margin: auto 5px;
+}
+
+.commit-actions > div {
+    min-width: 120px !important;
+}
+.commit-actions > div > button, .commit-actions > div > button:active {
+    background-color: #f6f8fa;
+    color: #57606a !important;
+    border-color: #57606a !important;
+}
+.commit-actions .btn {
+    background-color: #f6f8fa;
+}
+
+.commit-actions .btn-code {
+    padding: 5px 10px;
+    color: #57606a !important;
+}
